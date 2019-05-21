@@ -1,0 +1,19 @@
+﻿  core.c
+  dataLoad.c
+  InitializeAndFinalize.c
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\initializeandfinalize.c(12): warning C4098: 'Initialize': 'void' function returning a value
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\initializeandfinalize.c(18): warning C4098: 'Initialize': 'void' function returning a value
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\initializeandfinalize.c(23): warning C4020: 'SDL_CreateWindow': too many actual parameters
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\initializeandfinalize.c(28): warning C4098: 'Initialize': 'void' function returning a value
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\initializeandfinalize.c(36): warning C4098: 'Initialize': 'void' function returning a value
+  main.c
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(30): warning C4013: 'Initialize' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(31): warning C4013: 'InitializeBoard' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(32): warning C4013: 'loadData' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(33): warning C4013: 'loadStage' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(39): warning C4013: 'updateLaser' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(40): warning C4013: 'renderFrame' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(43): warning C4013: 'PollEvent' undefined; assuming extern returning int
+d:\conan\university files\cvip - computer vision and image processing\problem solving\c++lab\theory class\game project\game\game\main.c(45): warning C4013: 'Finalize' undefined; assuming extern returning int
+  Generating Code...
+  Game.vcxproj -> D:\Conan\University Files\CVIP - Computer Vision and Image Processing\Problem Solving\C++Lab\Theory Class\Game Project\Game\Debug\Game.exe

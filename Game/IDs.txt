@@ -1,0 +1,14 @@
+Tile Types
+
+0 - Wall
+1 - Path
+2 - MirrorLeft
+3 - MirrorRight
+
+
+Stage Numbers
+
+0 - Selected Tile
+1 - Menu
+2 - Information
+1X - Level X
