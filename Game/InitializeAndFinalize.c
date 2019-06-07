@@ -28,7 +28,7 @@ void Initialize()
 		return false;
 	}
 
-	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
+	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_PRESENTVSYNC);
 
 	if (Renderer == NULL)
 	{
@@ -56,6 +56,20 @@ void InitializeBoard()
 	BoardItems[1].x = 1049; BoardItems[1].y = 99; BoardItems[1].type = 0;
 	BoardItems[2].x = 1049; BoardItems[2].y = 299; BoardItems[2].type = 0;
 	BoardItems[3].x = 1049; BoardItems[3].y = 499; BoardItems[3].type = 0;
+
+	SelectedTile.rect.h = 100;
+	SelectedTile.rect.w = 100;
+}
+
+void InitializeLaser()
+{
+	LaserDot.R = 255;
+	LaserDot.B = 0;
+	LaserDot.G = 0;
+	LaserDot.rect.w = 5;
+	LaserDot.rect.h = 5;
+	LaserDot.velX = 0;
+	LaserDot.velY = 0;
 }
 
 void Finalize()

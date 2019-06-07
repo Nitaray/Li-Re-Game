@@ -3,16 +3,17 @@
 
 typedef struct Stage
 {
-	int Number;
-	char ID[256 + 7];
-	SDL_Rect pos;
-	int startX;
-	int startY;
-	int endX;
-	int endY;
+	int ID;
+	char Name[32 + 7];
+	char path[256 + 7];
+	int startX, startY;
+	int endX, endY;
 	int tileType[49 + 7];
 	int items[10 + 7];
 	int itemcounts[10 + 7];
+	SDL_Rect pos;
+	SDL_Texture* Txture;
+
 } Stage;
 
 typedef struct Tile
@@ -32,5 +33,5 @@ typedef struct Box
 	int a;
 	int velX;
 	int velY;
-	char path[32 + 7];
+	int TxtureID;
 } Box;

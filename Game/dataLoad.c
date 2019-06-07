@@ -1,94 +1,80 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
 #include <SDL.h>
 #include <SDL_image.h>
-#include <Structs.h>
 #include <main.h>
+#include <Structs.h>>
 
-void loadData()
+void loadData(Stage* pstage, char* path)
 {
-	Menu.Number = 1;
-	strcpy(Menu.ID, "assets/Menu.png");
+	FILE* input = fopen(path, "r");
+	if (input == NULL)
+		printf("Failed to open %s\n", path);
+	int* tile = pstage->tileType;
+	int* item = pstage->items;
+	int* itemcount = pstage->itemcounts;
 
-	Information.Number = 2;
-	strcpy(Information.ID, "assets/InformationTab.png");
+	int isLevel;
 
-	LaserDot.R = 255;
-	LaserDot.B = 0;
-	LaserDot.G = 0;
-	LaserDot.rect.x = CurrentStage.startX;
-	LaserDot.rect.y = CurrentStage.startY;
-	LaserDot.rect.w = 5;
-	LaserDot.rect.h = 5;
-	LaserDot.velX = 0;
-	LaserDot.velY = 0;
+	fscanf(input, "%d\n", &pstage->ID);		//get ID
+	fgets(pstage->Name, 32, input);			//get Name
+	fscanf(input, "%s\n", pstage->path);	//get PNG path
+	fscanf(input, "%d\n", &isLevel);		//check if playable level to continue
 
-	SelectedTile.rect.h = 100;
-	SelectedTile.rect.w = 100;
+	if (isLevel)
+	{
+		fscanf(input, "%d %d\n%d %d\n", &pstage->startX, &pstage->startY, &pstage->endX, &pstage->endY);	//Start and End pos of laser
 
-	Level1.Number = 11;
-	Level1.startX = 100 - 5;
-	Level1.startY = 400 - 5;
-	Level1.endX = 700 - 5;
-	Level1.endY = 400 - 5;
-	strcpy(Level1.ID, "assets/Level1.png");
-	for (int i = 0; i < 49; i++)
-		Level1.tileType[i] = 0;
-	for (int i = 21; i < 28; i++)
-		Level1.tileType[i] = 1;
+		for (int i = 0; i < 7; i++)
+			fscanf(input, "%d %d %d %d %d %d %d\n", &tile[i * 7], &tile[i * 7 + 1], &tile[i * 7 + 2],		//Get level tiles types.
+				&tile[i * 7 + 3], &tile[i * 7 + 4], &tile[i * 7 + 5], &tile[i * 7 + 6]);
 
-	Level2.Number = 12;
-	Level2.startX = 100 - 5;
-	Level2.startY = 400 - 5;
-	Level2.endX = 700 - 5;
-	Level2.endY = 400 - 5;
-	strcpy(Level2.ID, "assets/Level2.png");
-	for (int i = 0; i < 49; i++)
-		Level2.tileType[i] = 0;
-	for (int i = 21; i < 28; i++)
-		Level2.tileType[i] = 1;
-	Level2.tileType[23] = 2;
-	Level2.tileType[37] = 2;
-	Level2.tileType[39] = 3;
-	Level2.tileType[30] = 1;
-	Level2.tileType[32] = 1;
-	Level2.tileType[38] = 1;
-	Level2.tileType[24] = 0;
-	Level2.items[1] = 3; Level2.itemcounts[1] = 1;
-	Level2.items[2] = 0; Level2.itemcounts[2] = 0;
-	Level2.items[3] = 0; Level2.itemcounts[3] = 0;
+		int itemTypes;					
+		fscanf(input, "%d\n", &itemTypes);	//Get number of different items
 
-	Level3.Number = 13;
-	Level3.startX = 100 - 5;
-	Level3.startY = 100 - 5;
-	Level3.endX = 700 - 5;
-	Level3.endY = 600 - 5;
-	strcpy(Level3.ID, "assets/Level3.png");
-	for (int i = 0; i < 49; i++)
-		Level3.tileType[i] = 1;
-	Level3.tileType[3] = 0;
-	Level3.tileType[7] = 0;
-	Level3.tileType[8] = 0;
-	Level3.tileType[10] = 0;
-	Level3.tileType[12] = 0;
-	Level3.tileType[14] = 0;
-	Level3.tileType[21] = 0;
-	Level3.tileType[24] = 0;
-	Level3.tileType[26] = 0;
-	Level3.tileType[28] = 0;
-	Level3.tileType[33] = 0;
-	Level3.tileType[35] = 0;
-	Level3.tileType[37] = 0;
-	Level3.tileType[38] = 0;
-	Level3.tileType[40] = 0;
-	Level3.tileType[42] = 0;
-	Level3.tileType[47] = 0;
-	Level3.tileType[48] = 0;
-	Level3.tileType[2] = 2;
-	Level3.tileType[43] = 2;
-	Level3.tileType[18] = 3;
-	Level3.items[1] = 3; Level3.itemcounts[1] = 3;
-	Level3.items[2] = 2; Level3.itemcounts[2] = 1;
-	Level3.items[3] = 0; Level3.itemcounts[3] = 0; 
+		for (int i = 1; i <= itemTypes; i++)
+			fscanf(input, "%d %d\n", &item[i], &itemcount[i]);	//Get items type and items count
+	}
+
+	fclose(input);
+}
+
+void TxtureInit(Stage* pstage)
+{
+	pstage->Txture = IMG_LoadTexture(Renderer, pstage->path);	
+	if (!pstage->Txture)
+		printf("Failed to load texture at %s\n", pstage->path);
+}
+
+void loadTxtureContent(int ID, char* dpath)
+{
+	FILE* input = fopen(dpath, "r");
+	if (input == NULL)
+		printf("Failed to open %s", dpath);
+	char path[256 + 7];
+	fgets(path, 256, input);
+	TxtureContent[ID] = IMG_LoadTexture(Renderer, path);
+	if (!TxtureContent[ID])
+		printf("Failed to load texture at %s\n", path);
+	fclose(input);
+}
+
+void dataInit()
+{
+	loadData(&Stages[1], "data/level/HomeScreen.dat");
+	loadData(&Stages[2], "data/level/Info.dat");
+	loadData(&Stages[11], "data/level/level1.dat");
+	loadData(&Stages[12], "data/level/level2.dat");
+	loadData(&Stages[13], "data/level/level3.dat");
+
+	TxtureInit(&Stages[1]);
+	TxtureInit(&Stages[2]);
+	TxtureInit(&Stages[11]);
+	TxtureInit(&Stages[12]);
+	TxtureInit(&Stages[13]);
+
+	loadTxtureContent(0, "data/tile/Wall.dat");
+	loadTxtureContent(1, "data/tile/Path.dat");
+	loadTxtureContent(2, "data/tile/MirrorLeft.dat");
+	loadTxtureContent(3, "data/tile/MirrorRight.dat");
 }

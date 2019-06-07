@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\assets">
+      <UniqueIdentifier>{70ce4963-4cd5-458c-b2b9-c1ff767daa69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\data">
+      <UniqueIdentifier>{b08c0c19-97aa-47c5-bfa8-eb38a43137f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\data\level">
+      <UniqueIdentifier>{bb25a46d-f479-4226-adb3-33c03270f536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\data\tile">
+      <UniqueIdentifier>{4c0a3333-5d04-4c43-9ad0-6164b1be7b3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -33,44 +45,73 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\InformationTab.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\Menu.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\MirrorLeft.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\MirrorRight.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\Path.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\stage1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="assets\wall.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\InformationTab.png">
+      <Filter>Resource Files\assets</Filter>
     </Image>
     <Image Include="assets\Level1.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\assets</Filter>
     </Image>
     <Image Include="assets\Level2.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\assets</Filter>
     </Image>
     <Image Include="assets\Level3.png">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\HomeScreen.png">
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\MirrorLeft.png">
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\MirrorRight.png">
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\Path.png">
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\stage1.png">
+      <Filter>Resource Files\assets</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\level\HomeScreen.dat">
+      <Filter>Resource Files\data\level</Filter>
+    </None>
+    <None Include="data\level\Info.dat">
+      <Filter>Resource Files\data\level</Filter>
+    </None>
+    <None Include="data\level\level1.dat">
+      <Filter>Resource Files\data\level</Filter>
+    </None>
+    <None Include="data\level\level2.dat">
+      <Filter>Resource Files\data\level</Filter>
+    </None>
+    <None Include="data\level\level3.dat">
+      <Filter>Resource Files\data\level</Filter>
+    </None>
+    <None Include="data\tile\MirrorLeft.dat">
+      <Filter>Resource Files\data\tile</Filter>
+    </None>
+    <None Include="data\tile\MirrorRight.dat">
+      <Filter>Resource Files\data\tile</Filter>
+    </None>
+    <None Include="data\tile\Path.dat">
+      <Filter>Resource Files\data\tile</Filter>
+    </None>
+    <None Include="data\tile\Wall.dat">
+      <Filter>Resource Files\data\tile</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Text Include="IDs.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\data</Filter>
     </Text>
   </ItemGroup>
 </Project>

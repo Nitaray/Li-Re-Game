@@ -1,7 +1,12 @@
-﻿  core.c
+﻿F:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (Game.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  InitializeAndFinalize.c
+f:\coding projects\li-re-game\game\initializeandfinalize.c(12): warning C4098: 'Initialize': 'void' function returning a value
+f:\coding projects\li-re-game\game\initializeandfinalize.c(18): warning C4098: 'Initialize': 'void' function returning a value
+f:\coding projects\li-re-game\game\initializeandfinalize.c(23): warning C4020: 'SDL_CreateWindow': too many actual parameters
+f:\coding projects\li-re-game\game\initializeandfinalize.c(28): warning C4098: 'Initialize': 'void' function returning a value
+f:\coding projects\li-re-game\game\initializeandfinalize.c(36): warning C4098: 'Initialize': 'void' function returning a value
+f:\coding projects\li-re-game\game\initializeandfinalize.c(44): warning C4133: 'function': incompatible types - from 'SDL_Surface *' to 'SDL_Texture *'
   Generating code
-  2 of 16 functions (12.5%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 23 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  Game.vcxproj -> D:\Conan\University Files\CVIP - Computer Vision and Image Processing\Problem Solving\C++Lab\Theory Class\Game Project\Game\Release\Game.exe
+  Game.vcxproj -> F:\Coding Projects\Li-Re-Game\Release\LiRe.exe
